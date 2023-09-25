@@ -1,0 +1,19 @@
+1、通过Numpy中的random.permutation(x)方法可以进行随机排列，x可以为一个整数，或者是一个数组array，或者是一个Series.
+
+#对于整数，会生成一个该整数范围内的随机排列的数组
+per_int = np.random.permutation(5)
+
+#对于一个一维数组或者Series，可以对其结果进行重排
+arr = [10, 20, 30, 0, 40]
+per_arr = np.random.permutation(arr)
+
+
+
+2、通过take方法或者iloc属性，均可以根据特定的整数数组，来调取特定行数的DataFrame
+per_dataframe = pd.DataFrame(np.arange(5*7).reshape((5, 7)))
+
+#take方法按顺序调取特定的行数
+per_dataframe.take(per_int)
+
+#通过DataFrame对象的iloc属性调取特定的行数
+per_dataframe.iloc[per_int]
