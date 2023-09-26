@@ -1,0 +1,68 @@
+1、Python自带的字符操作方法
+
+#通过split()方法可以以特定的分隔符对字符串进行分割
+val = "a,b,  guido"
+val.split(',')
+
+#通过strip()方法可以去除字符周围的空格，该方法不可以应用于列表
+piece = [x.strip() for x in val.split(',')]
+
+#可以通过join()方法，以特定的字符连接字符
+"--".join(piece)
+
+
+#判断某个字符是否在字符串中：
+#方法一：in
+"guido" in val #返回一个布尔值，True或者False
+
+#方法二：find()
+val.find(":") #存在该字符，则返回值为1，不存在则返回值为-1
+
+#方法三：index()
+val.index(",") #存在该字符的话，返回值为1，不存在的话，会报错
+
+
+#统计某个字符出现的次数：count()
+val.count(",")
+
+#替换字符：replace(), 被替换的字符在前，替代者在后
+val.replace(",", "_")
+
+
+
+2、正则表达式：需要导入模块re
+import re
+
+
+
+3、Pandas中的字符串处理方法
+str_data = {"Dave": "dave@google.com", "Steve": "steve@gmail.com",
+            "Rob": "rob@gmail.com", "Wes": np.nan }
+
+str_series = pd.Series(str_data)
+
+#判断是否为空值：isna()
+str_series.isna()
+
+#检测某个字符串是否被包含在大字符串中：str.contains
+#即使原数据中存在空值，该方法也不会报错
+str_series.str.contains("@gmail")
+
+#通过astype()方法可以转换数据的类型
+str_series.astype("string")
+
+#通过str.get()方法，可以提取出序列中，数值的指定位置的元素，该方法一次只能提取一个元素
+#例：提取序列数值列中，字符串、列表、或者元组的第一个元素，并且返回一个新的序列，索引不会被改变.
+str_series.str.get(0) 
+
+#通过str[]方法，不仅可以提取单个元素，还可以以切片的方式一次提取多个元素
+str_series.str[5]
+str_series.str[5]
+
+
+
+
+
+
+
+
