@@ -17,3 +17,19 @@ per_dataframe.take(per_int)
 
 #通过DataFrame对象的iloc属性调取特定的行数
 per_dataframe.iloc[per_int]
+
+#可以通过设置take方法中，axis='columns'，使得其让原DataFrame根据排列的整数数组，进行列重排，而iloc属性只能引用行数据
+column_per_int = np.random.permutation(7)
+per_dataframe.take(column_per_int, axis='columns')
+
+
+
+3、通过sample对数据进行随机抽样，放回抽样或者不放回抽样
+
+#默认为不放回抽样
+per_dataframe.sample(3)
+
+#通过设置参数replace=True，可以进行放回抽样
+per_dataframe.sample(10, replace = True)
+
+
