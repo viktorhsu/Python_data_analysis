@@ -1,0 +1,26 @@
+1、通过pd.get_dummies方法，可以提取数据中的分类变量，将分类变量作为列，构建一个值全为1或0的dataframe或者矩阵
+
+#默认情况下，新产生的矩阵的列，列名均为各分类变量的值
+dummy_data = pd.DataFrame({'key': ["b", "b", "a", "c", "a", "b"], 'num': range(6)})
+pd.get_dummies(dummy_data['key'])
+
+#可以通过设置get_dummies()方法中的参数prefix=‘key’来给新产生的矩阵或者dataframe的列名添加前缀
+pd.get_dummies(dummy_data['key'], prefix='key')
+
+
+
+2、如果一个分类变量列中，存在很多行的数据，每行属于多个不同类的情况，可以通过str.get_dummies()方法，设置每行中各分类值的分隔符
+dummies_matrix = dummy_data['key'].str.get_dummies['|']
+
+#对于同一行数据属于多个不同类的情况，新产生矩阵后，也可以通过方法add_prefix()方法给新产生的矩阵的列名添加前缀
+dummies_matrix_newname = dummies_matrix.add_prefix('Class_')
+
+
+
+3、可以将get_dummies()方法与pd.cut()或者pd.qcut()方法结合，从而可以以0-1矩阵的形式，展现每行数据所属的分类区间
+pd.random.seed(12345)
+values = pd.random.uniform(size=10)
+bins=[0.2, 0.4, 0.6, 0.8, 1]
+pd.cut(values, bins)
+
+pd.get_dummies(pd.cut(values, bins))
