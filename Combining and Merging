@@ -179,6 +179,20 @@ pd.concat((concat_df1, concat_df2), axis=0, ignore_index=True)
 
 
 
+8、通过对数据集调用combine_first()方法，可以用另外一个数据集的值去填补该数据集的空值
+concat_first_df1 = pd.DataFrame({"a": [1., np.nan, 5., np.nan],
+                                 "b": [np.nan, 2., np.nan, 6.],
+                                 "c": range(2, 18, 4)})
+
+concat_first_df2 = pd.DataFrame({"a": [5., 4., np.nan, 3., 7.],
+                                 "b": [np.nan, 3., 4., 6., 8.]})
+
+#用数据集concat_first_df2去填补数据集concat_first_df1的空值
+concat_first_df1.combine_first(concat_first_df2)
+
+#用数据集concat_first_df1去填补数据集concat_first_df2的空值
+concat_first_df2.combine_first(concat_first_df1)
+
 
 
 
