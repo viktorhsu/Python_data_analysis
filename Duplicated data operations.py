@@ -11,6 +11,6 @@
   #默认为每列数据都一样才为重复行
   dup_data.drop_duplicates(keep = 'last')
   #也可以给drop_duplicates传入subset参数，指定判断为重复值的标准
-  dup_data.drop_duplicates(keep = ['k1'], keep = 'last')
+  dup_data.drop_duplicates(subset = ['k1'], keep = 'last')
   
   
