@@ -20,6 +20,7 @@
                                               
 5、查看库
 查看单个库的信息：python3 -m pip show matplotlib
+查看单个库的版本：print(numpy.__version__)
 查看已安装的所有库的版本：python3 -m pip list
 查看可更新的库：python3 -m pip list --outdated
 
